@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+
+{% block title %}index{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{ url_for('home.static', filename='css/style.css') }}" />
+	<style>
+		body {
+			background-image: url("{{ url_for('home.static', filename='img/arches.png') }}");
+		}
+
+		.important {
+			color: red;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<div class="center">
+		<h1>Index</h1>
+		<p class="important">
+			Hello, little pussy.
+		</p>
+	</div>
+{% endblock %}

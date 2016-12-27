@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+
+{% block title %}admin index{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{ url_for('admin.static', filename='css/style.css') }}" />
+	<style>
+		body {
+			background-image: url("{{ url_for('admin.static', filename='img/blog-bg.png') }}");
+			background-repeat: repeat-x;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<h1>Admin</h1>
+	<p class="important">
+		Hello, motherfucker
+	</p>
+
+	<div>
+		<input type="text" name="name">
+		<button id="submit-name" class="btn btn-default">ok</button>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	{{ super() }}
+	<script>
+		$(() => {
+			$("#submit-name").click(() => {
+				let name = $("input[name='name']").val();
+				$.post("/admin/check-name", {name: name}, function callback(result) {
+					console.log(result);
+				});
+			});
+		});
+	</script>
+{% endblock %}

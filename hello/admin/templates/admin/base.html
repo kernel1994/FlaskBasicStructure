@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}" />
+    
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="content" class="container">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        Fuck other.
+        {% endblock %}
+    </div>
+
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/jquery/jquery-3.1.1.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.js') }}"></script>
+    {% endblock %}
+</body>
